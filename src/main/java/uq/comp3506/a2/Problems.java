@@ -32,6 +32,8 @@ public class Problems {
      * @param lightIntervals The list of light intervals in [0, tunnelLength];
      * that is, all light interval values are >= 0 and <= tunnelLength
      * @return The minimum radius value required to illuminate the tunnel
+     * or -1 if no light fittings are provided
+     * Note: We promise that the input List will be an ArrayList.
      */
     public static double tunnelLighting(int tunnelLength, List<Integer> lightIntervals) {
         return -1;
@@ -43,6 +45,8 @@ public class Problems {
      *              Edge, which stores two vertices and a value. Vertex identifiers
      *              are NOT GUARANTEED to be contiguous or in a given range.
      * @return The corresponding TopologyType.
+     * Note: We promise not to provide any self loops, double edges, or isolated
+     * vertices.
      */
     public static <S, U> TopologyType topologyDetection(List<Edge<S, U>> edgeList) {
         TopologyType dummy = TopologyType.UNKNOWN;
@@ -60,6 +64,8 @@ public class Problems {
      *         of a reachable station (within the time threshold), and the second
      *         element is the minimum cost of reaching that given station. The
      *         order of the list is not important.
+     * Note: We promise that S will be of Integer type.
+     * Note: You should return the origin in your result with a cost of zero.
      */
     public static <S, U> List<Entry<Integer, Integer>> routeManagement(List<Edge<S, U>> edgeList,
                                                           Vertex<S> origin, int threshold) {

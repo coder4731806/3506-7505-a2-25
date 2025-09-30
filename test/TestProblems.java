@@ -105,7 +105,8 @@ public class TestProblems {
                 new Entry<>(2, 4),
                 new Entry<>(3, 4),
                 new Entry<>(4, 4),
-                new Entry<>(5, 2)
+                new Entry<>(5, 0),
+                new Entry<>(6, 2)
         ));
 
         List<Entry<Integer, Integer>> actual = Problems.routeManagement(edgeList, origin, threshold);
@@ -127,9 +128,9 @@ public class TestProblems {
         tunnels.add(new Tunnel(4,1,3,1.6));
         tunnels.add(new Tunnel(5, 4,4,1.2));
         
-         assert Problems.totallyFlooded(tunnels) == 3;
+         assert Problems.totallyFlooded(tunnels) == 2;
         // you can use this one if you prefer jUnit testing instead
-        // assertEquals(3, Problems.totallyFlooded(tunnels));
+        // assertEquals(2, Problems.totallyFlooded(tunnels));
     }
 
     public static void testSusDomination() {

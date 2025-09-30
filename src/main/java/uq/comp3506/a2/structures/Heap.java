@@ -114,8 +114,10 @@ public class Heap<K extends Comparable<K>, V> {
 
     /**
      * We assume smaller keys have higher priority, so this method will
-     * remove the highest priority element from the heap.
+     * remove and return the highest priority element from the heap.
      * Time complexity for full marks: O(log n)
+     * @return the Entry at the top of the heap
+     * Note: Return null if empty.
      */
     public Entry<K, V> removeMin() {
         return null; 
@@ -126,6 +128,8 @@ public class Heap<K extends Comparable<K>, V> {
      * return a copy of the highest priority element in the heap, but it
      * wont remove it.
      * Time complexity for full marks: O(1)
+     * @return the Entry at the top of the heap
+     * Note: Return null if empty
      */
     public Entry<K, V> peekMin() {
         return null;

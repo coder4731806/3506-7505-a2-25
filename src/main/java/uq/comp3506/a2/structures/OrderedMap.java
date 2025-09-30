@@ -176,7 +176,7 @@ public class OrderedMap<K extends Comparable<K>, V> implements MapInterface<K, V
     }
 
 
-    /** Returns a list of keys in the range [lo, hi]*/
+    /** Returns a SORTED list of keys in the range [lo, hi]*/
     public List<K> keysInRange(K lo, K hi) {
         ArrayList<K> result = new ArrayList<>();
         // Implement me!
