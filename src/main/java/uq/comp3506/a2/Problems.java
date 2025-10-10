@@ -1,6 +1,6 @@
 // @edu:student-assignment
 
-package uq.comp3506.a2;
+package main.java.uq.comp3506.a2;
 
 // You may wish to import more/other structures too
 import uq.comp3506.a2.structures.Edge;
@@ -52,7 +52,7 @@ public class Problems {
         TopologyType dummy = TopologyType.UNKNOWN;
         return dummy;
     }
- 
+
     /**
      * Compute the list of reachable destinations and their minimum costs.
      * @param edgeList The list of edges making up the graph G; each is of type
@@ -74,13 +74,13 @@ public class Problems {
     }
 
     /**
-     * Compute the tunnel that if flooded will cause the maximal flooding of 
+     * Compute the tunnel that if flooded will cause the maximal flooding of
      * the network
      * @param tunnels A list of the tunnels to consider; see Tunnel.java
      * @return The identifier of the Tunnel that would cause maximal flooding.
      * Note that for Tunnel A to drain into some other tunnel B, the distance
      * from A to B must be strictly less than the radius of A plus an epsilon
-     * allowance of 0.000001. 
+     * allowance of 0.000001.
      * Note also that all identifiers in tunnels are GUARANTEED to be in the
      * range [0, n-1] for n unique tunnels.
      */
