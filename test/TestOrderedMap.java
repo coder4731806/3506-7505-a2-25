@@ -2,7 +2,7 @@
  * Supplied by the COMP3506/7505 teaching team, Semester 2, 2025.
  */
 
-import uq.comp3506.a2.structures.OrderedMap;
+import main.java.uq.comp3506.a2.structures.OrderedMap;
 
 public class TestOrderedMap {
 

@@ -2,15 +2,15 @@
 * Supplied by the COMP3506/7505 teaching team, Semester 2, 2025.
 */
 
-import uq.comp3506.a2.Problems;
-import uq.comp3506.a2.structures.Heap;
-import uq.comp3506.a2.structures.OrderedMap;
-import uq.comp3506.a2.structures.UnorderedMap;
-import uq.comp3506.a2.structures.Vertex;
-import uq.comp3506.a2.structures.Edge;
-import uq.comp3506.a2.structures.Tunnel;
-import uq.comp3506.a2.structures.Entry;
-import uq.comp3506.a2.structures.TopologyType;
+import main.java.uq.comp3506.a2.Problems;
+import main.java.uq.comp3506.a2.structures.Heap;
+import main.java.uq.comp3506.a2.structures.OrderedMap;
+import main.java.uq.comp3506.a2.structures.UnorderedMap;
+import main.java.uq.comp3506.a2.structures.Vertex;
+import main.java.uq.comp3506.a2.structures.Edge;
+import main.java.uq.comp3506.a2.structures.Tunnel;
+import main.java.uq.comp3506.a2.structures.Entry;
+import main.java.uq.comp3506.a2.structures.TopologyType;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -3,11 +3,11 @@
 package main.java.uq.comp3506.a2;
 
 // You may wish to import more/other structures too
-import uq.comp3506.a2.structures.Edge;
-import uq.comp3506.a2.structures.Vertex;
-import uq.comp3506.a2.structures.Entry;
-import uq.comp3506.a2.structures.TopologyType;
-import uq.comp3506.a2.structures.Tunnel;
+import main.java.uq.comp3506.a2.structures.Edge;
+import main.java.uq.comp3506.a2.structures.Vertex;
+import main.java.uq.comp3506.a2.structures.Entry;
+import main.java.uq.comp3506.a2.structures.TopologyType;
+import main.java.uq.comp3506.a2.structures.Tunnel;
 
 import java.util.ArrayList;
 import java.util.List;

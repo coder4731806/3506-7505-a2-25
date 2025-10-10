@@ -34,5 +34,10 @@ public class Entry<K, V> {
         this.value = value;
     }
 
+    public void swapValues(Entry<K, V> other) {
+        V temp = this.value;
+        this.value = other.value;
+        other.value = temp;
+    }
     // You may add more helper functions here, if you wish
 }

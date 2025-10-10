@@ -2,6 +2,7 @@
 
 package main.java.uq.comp3506.a2.structures;
 
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -29,7 +30,6 @@ public class Heap<K extends Comparable<K>, V> {
      */
     public Heap() {
         this.data = new ArrayList<>();
-        // Implement me!
     }
 
     /**
@@ -46,32 +46,39 @@ public class Heap<K extends Comparable<K>, V> {
     /**
      * Returns the index of the parent of the node at index i
      */
-    private int parent(int i) { 
-        // Implement me!
-        return -1; 
+    private int parent(int i) {
+        return (int) Math.floor(((i-1)/2));
     }
 
     /**
      * Returns the index of the left child of the node at index i
      */
-    private int left(int i) { 
+    private int left(int i) {
         // Implement me!
-        return -1; 
+        return 2*i+1;
     }
 
     /**
      * Returns the index of the right child of the node at index i
      */
-    private int right(int i) { 
+    private int right(int i) {
         // Implement me!
-        return -1; 
+        return 2*i+2;
     }
 
     /**
      * Swaps the node at index i upwards until the heap property is satisfied
      */
     private void upHeap(int i) {
-
+        while(i>0 && data.get(i).getKey().compareTo(data.get(parent(i)).getKey()) < 0){
+            //initiate swap
+            Entry<K,V> tempVar= data.get(i);
+            Entry<K,V> tempVar2= data.get(parent(i));
+            data.set(i, tempVar2);
+            data.set(parent(i), tempVar);
+//            option 2
+//            tempVar.swapValues(tempVar2);
+        }
     }
 
     /**
@@ -109,7 +116,7 @@ public class Heap<K extends Comparable<K>, V> {
      */
     public void insert(Entry<K, V> entry) {
         // Implement me!
-   
+
     }
 
     /**
@@ -120,7 +127,7 @@ public class Heap<K extends Comparable<K>, V> {
      * Note: Return null if empty.
      */
     public Entry<K, V> removeMin() {
-        return null; 
+        return null;
     }
 
     /**
