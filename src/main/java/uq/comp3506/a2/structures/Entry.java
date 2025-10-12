@@ -33,6 +33,10 @@ public class Entry<K, V> {
     public void setValue(V value) {
         this.value = value;
     }
+    public void setKey(K key) {
+        this.key = key;
+    }
+
 
     public void swapValues(Entry<K, V> other) {
         V temp = this.value;
@@ -40,4 +44,11 @@ public class Entry<K, V> {
         other.value = temp;
     }
     // You may add more helper functions here, if you wish
+
+    @Override
+    public String toString() {
+        return "Entry{key=" + key + ", value=" + value + "}";
+    }
+
+
 }
