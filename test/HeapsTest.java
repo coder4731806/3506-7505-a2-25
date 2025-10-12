@@ -16,16 +16,16 @@ public class HeapsTest {
         System.out.println(heap);
 
         // Break the heap manually: make index 1's key large
-        heap.data.get(1).setValue("Z");          // optional: change value to see
-        heap.data.get(1).swapValues(heap.data.get(0)); // fake a disorder
-        heap.data.get(1).setValue("B");          // restore value if needed
-        heap.data.get(1).setKey(20);             // <-- if you make key public or add setter
+//        heap.data.get(1).setValue("Z");          // optional: change value to see
+//        heap.data.get(1).swapValues(heap.data.get(0)); // fake a disorder
+//        heap.data.get(1).setValue("B");          // restore value if needed
+//        heap.data.get(1).setKey(20);             // <-- if you make key public or add setter
 
         System.out.println("Heap after manual change (invalid):");
         System.out.println(heap);
 
         // Now call downHeap to restore min-heap property
-        heap.downHeap(1);
+//        heap.downHeap(1);
 
         System.out.println("Heap after downHeap:");
         System.out.println(heap);

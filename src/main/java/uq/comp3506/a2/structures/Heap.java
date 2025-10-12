@@ -24,7 +24,7 @@ public class Heap<K extends Comparable<K>, V> {
      * data stores the raw Entry objects and can grow indefinitely
      * change to private
      */
-    public List<Entry<K, V>> data;
+    private List<Entry<K, V>> data;
 
     /**
      * Constructs an empty heap with the default constructor
@@ -120,7 +120,7 @@ public class Heap<K extends Comparable<K>, V> {
      * Swaps the node at index i downwards until the heap property is satisfied
      *remember to change public to private
      */
-    public void downHeap(int i) {
+    private void downHeap(int i) {
 
         Entry<K,V> temp = data.get(i);
 
