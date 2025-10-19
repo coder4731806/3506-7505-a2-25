@@ -2,7 +2,7 @@
  * Supplied by the COMP3506/7505 teaching team, Semester 2, 2025.
  */
 
-import main.java.uq.comp3506.a2.structures.UnorderedMap;
+import main.java.uq.comp3506.a2.structures.;
 
 public class TestUnorderedMap {
 
@@ -11,6 +11,9 @@ public class TestUnorderedMap {
      
         UnorderedMap<Integer, String> map = new UnorderedMap<>();
         // Your code here
+        map.put(50, "A");
+
+        map.put(50, "A");
 
     }
 }

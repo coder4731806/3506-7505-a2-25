@@ -249,6 +249,7 @@ public class Heap<K extends Comparable<K>, V> {
      */
     public void clear() {
         data.clear();
+        size = 0;
     }
 
 }
