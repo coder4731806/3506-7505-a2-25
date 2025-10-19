@@ -1,6 +1,6 @@
 // @edu:student-assignment
 
-package main.java.uq.comp3506.a2.structures;
+package uq.comp3506.a2.structures;
 
 /**
  * Supplied by the COMP3506/7505 teaching team, Semester 2, 2025.

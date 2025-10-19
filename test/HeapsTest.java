@@ -1,5 +1,5 @@
-import main.java.uq.comp3506.a2.structures.Entry;
-import main.java.uq.comp3506.a2.structures.Heap;
+import uq.comp3506.a2.structures.Entry;
+import uq.comp3506.a2.structures.Heap;
 public class HeapsTest {
     public static void main(String[] args) {
 
