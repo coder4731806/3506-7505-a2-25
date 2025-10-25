@@ -63,7 +63,7 @@ public class UnorderedMap<K, V> implements MapInterface<K, V> {
      */
     @Override
     public void clear() {
-        for (int i = 0; i < data.length-1; i++) {
+        for (int i = 0; i < data.length; i++) {
             if(data[i]!=null){
                 data[i].clear();
             }
@@ -109,7 +109,7 @@ public class UnorderedMap<K, V> implements MapInterface<K, V> {
             if(list!=null){
                 for (Entry<K, V> entry : list) {
                     int index=entry.getKey().hashCode()%NewCapacity;
-                    if(newData==null){
+                    if(newData[index]==null){
                         newData[index]=new ArrayList<>();
                     }
                     newData[index].add(entry);
@@ -151,12 +151,13 @@ public class UnorderedMap<K, V> implements MapInterface<K, V> {
     public V remove(K key) {
         int loc = key.hashCode()%this.capacity;
         if(data[loc]!=null){
-            for (Entry<K, V> num : data[loc]) {
-                if (num.getKey().equals(key)){
-                    V oldie=num.getValue();
-                    data[loc].remove(num);
-                    this.size--;
-                    return oldie;
+            for (int i = 0; i < data[loc].size(); i++) {
+                Entry<K, V> entry = data[loc].get(i);
+                if (entry.getKey().equals(key)) {
+                    V oldValue = entry.getValue();
+                    data[loc].remove(i);
+                    size--;
+                    return oldValue;
                 }
             }
         }

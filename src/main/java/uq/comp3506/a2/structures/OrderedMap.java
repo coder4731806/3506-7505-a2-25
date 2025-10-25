@@ -15,8 +15,10 @@ import java.util.ArrayList;
 public class OrderedMap<K extends Comparable<K>, V> implements MapInterface<K, V> {
 
     /** Used for passing back mutated data from recursive calls. */
-    private record MutationResult<A, B>(A newNode, B oldValue) {}
-    
+    private record MutationResult<A, B>(A newNode, B oldValue) {
+
+    }
+
     /**
      * Internal node class for storing data. Explicitly stores a key and value;
      also tracks height, and a reference to the left and right child.
@@ -91,7 +93,7 @@ public class OrderedMap<K extends Comparable<K>, V> implements MapInterface<K, V
      * Tracks the root of the AVL tree
      */
     private Node<K, V> root;
-    
+
     /**
      * Tracks the number of nodes in the AVL tree
      */
@@ -123,6 +125,7 @@ public class OrderedMap<K extends Comparable<K>, V> implements MapInterface<K, V
         root = null; // Let the gc take care of things
         size = 0;
     }
+
 
     /** put a new k/v pair into the AVL tree */
     @Override
@@ -163,24 +166,99 @@ public class OrderedMap<K extends Comparable<K>, V> implements MapInterface<K, V
      * equal to `key`
      */
     public V nextGeq(K key) {
-        // Implement me!
-        return null;
+        Node<K,V> nextNode = nextGeq(root,key);
+        if(nextNode==null){
+            return null;
+        }
+        else{
+            return nextNode.getValue();
+        }
+
+
     }
+    /*
+    take in current node and key value and deduce which node to visit next if compare
+    value greater than 0 then go to right subtree else go to left subtree
+     */
+    public Node<K, V> nextGeq(Node<K, V> node, K key) {
+        if (node == null){
+            return null;
+        }
+
+        int compare= node.getKey().compareTo(key);
+        if(compare==0){
+            return node;
+        }
+        else if(compare > 0){
+                Node<K, V> leftResult = nextGeq(node.getLeft(), key);
+                if (leftResult != null) {
+                    return leftResult;
+                }
+                else {
+                    return node;
+                }
+        }
+        else{
+            return nextGeq(node.getRight(), key);
+        }
+    }
+
 
     /** Returns the value associated with the largest key less than or
      * equal to `key`
      */
     public V nextLeq(K key) {
-        // Implement me!
-        return null;
+        Node<K,V> nextNode = nextLeq(root, key);
+        if (nextNode == null) {
+            return null;
+        }
+        else {
+            return nextNode.getValue();
+        }
     }
 
+    private Node<K, V> nextLeq(Node<K, V> node, K key) {
+        if (node == null) return null;
+
+        int cmp = node.getKey().compareTo(key);
+        if (cmp == 0) {
+            return node;
+        } else if (cmp < 0) {
+            Node<K, V> rightResult = nextLeq(node.getRight(), key);
+            if (rightResult != null) {
+                return rightResult;
+            }
+            else{
+                return node;
+            }
+        } else {
+           return nextLeq(node.getLeft(), key);
+        }
+    }
 
     /** Returns a SORTED list of keys in the range [lo, hi]*/
     public List<K> keysInRange(K lo, K hi) {
-        ArrayList<K> result = new ArrayList<>();
-        // Implement me!
+        List<K> result = new ArrayList<>();
+        recursiveKeysInRange(root, lo, hi,result);
         return result;
+    }
+
+    public void recursiveKeysInRange(Node<K, V> node, K lo, K hi, List<K>result) {
+        if(node==null)return;
+
+        if (node.getKey().compareTo(lo) > 0) {
+            recursiveKeysInRange(node.getLeft(), lo, hi, result);
+        }
+
+        // Add key if within [lo, hi]
+        if (node.getKey().compareTo(lo) >= 0 && node.getKey().compareTo(hi) <= 0) {
+            result.add(node.getKey());
+        }
+
+        // Traverse right if possible
+        if (node.getKey().compareTo(hi) < 0) {
+            recursiveKeysInRange(node.getRight(), lo, hi, result);
+        }
     }
 
     /* All of the AVL Tree helpers are below; they are all private because a
@@ -241,10 +319,16 @@ public class OrderedMap<K extends Comparable<K>, V> implements MapInterface<K, V
 
     /** The mirror of the rotateRight shown above */
     private Node<K, V> rotateLeft(Node<K, V> x) {
-        // uh oh... implement me!
-        // you can do it without AI, I believe in you
-        // make Barry proud
-        return x; // This will NOT work
+        Node<K, V> y = x.getRight();   // right child becomes new root of this subtree
+        Node<K, V> T2 = y.getLeft();   // store y's left subtree
+
+        y.setLeft(x);
+        x.setRight(T2);
+
+        updateHeight(x);
+        updateHeight(y);
+
+        return y;
     }
 
     /** Does the heavy lifting of the balancing */

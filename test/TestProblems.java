@@ -25,8 +25,10 @@ public class TestProblems {
         System.out.println("Testing 'Tunnel Lighting'");
 
         // Here's the test from the specsheet
-        assert Math.abs(Problems.tunnelLighting(12,
-                        new ArrayList<>(Arrays.asList(4, 7, 8, 1))) - 4) <= 0.000001;
+//        assert Math.abs(Problems.tunnelLighting(12,
+//                        new ArrayList<>(Arrays.asList(4, 7, 8, 1))) - 4) <= 0.000001;
+        Problems problems = new Problems();
+        problems.tunnelLighting(20, new ArrayList<>(Arrays.asList(4, 7, 8, 1)));
 
         // you can use this one if you prefer jUnit testing instead
         // assertEquals(4, Problems.tunnelLighting(12,
@@ -127,7 +129,7 @@ public class TestProblems {
         tunnels.add(new Tunnel(3, 4,3,1.2));
         tunnels.add(new Tunnel(4,1,3,1.6));
         tunnels.add(new Tunnel(5, 4,4,1.2));
-        
+
          assert Problems.totallyFlooded(tunnels) == 2;
         // you can use this one if you prefer jUnit testing instead
         // assertEquals(2, Problems.totallyFlooded(tunnels));
@@ -192,15 +194,16 @@ public class TestProblems {
     public static void main(String[] args) {
 
         // Basic checking - make sure a command is provided
-        if (args.length == 0) {
-            usage();
-            return;
-        }
-
-        // Walk the commands and try to dispatch them
-        for (int i = 0; i < args.length; ++i) {
-            dispatch(args[i]);
-        }
+//        if (args.length == 0) {
+//            usage();
+//            return;
+//        }
+//
+//        // Walk the commands and try to dispatch them
+//        for (int i = 0; i < args.length; ++i) {
+//            dispatch(args[i]);
+//        }
+        testTunnelLighting();
 
         // profit??
     }

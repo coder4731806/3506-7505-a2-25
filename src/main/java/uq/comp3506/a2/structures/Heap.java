@@ -197,7 +197,6 @@ public class Heap<K extends Comparable<K>, V> {
      * Time complexity for full marks: O(log n)*
      */
     public void insert(Entry<K, V> entry) {
-
         data.add(entry);
         upHeap(data.size()-1);
     }
@@ -210,11 +209,17 @@ public class Heap<K extends Comparable<K>, V> {
      * Note: Return null if empty.
      */
     public Entry<K, V> removeMin() {
+        if (data.isEmpty()) return null;
+
+        Entry<K, V> min = data.get(0);
         data.set(0, data.get(data.size()-1));
         data.remove(data.size()-1);
-        downHeap(0);
-        return data.get(0);
+        if (!data.isEmpty()) {
+            downHeap(0);
+        }
+        return min;
     }
+
 
     /**
      * We assume smaller keys have higher priority, so this method will

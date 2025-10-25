@@ -10,6 +10,7 @@ import uq.comp3506.a2.structures.TopologyType;
 import uq.comp3506.a2.structures.Tunnel;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 // This is part of COMP3506 Assignment 2. Students must implement their own solutions.
@@ -36,9 +37,25 @@ public class Problems {
      * Note: We promise that the input List will be an ArrayList.
      */
     public static double tunnelLighting(int tunnelLength, List<Integer> lightIntervals) {
+        List<Integer> sortedList = sortedList(lightIntervals);
+        List<Integer> difference = new ArrayList<>();
+        int i=0;
+        difference.add(sortedList.get(0)-0);
+//        while(i<tunnelLength){
+//
+//        }
+        System.out.println(sortedList.get(sortedList.size()-1));
+        difference.add(tunnelLength-sortedList.get(sortedList.size()-1));
+
+        System.out.println(difference);
         return -1;
     }
 
+    public static List<Integer> sortedList(List<Integer> list){
+        Collections.sort(list);
+        return list;
+
+    }
     /**
      * Compute the TopologyType of the graph as represented by the given edgeList.
      * @param edgeList The list of edges making up the graph G; each is of type
