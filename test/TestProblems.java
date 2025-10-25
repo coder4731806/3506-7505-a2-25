@@ -56,7 +56,8 @@ public class TestProblems {
             new Edge<>(vertices.get(5), vertices.get(6), 'E'))
         );
         assert Problems.topologyDetection(connectedGraph) == TopologyType.CONNECTED_GRAPH;
-
+        Problems p = new Problems();
+        p.topologyDetection(connectedGraph);
 
         // this is the last of the four specsheet examples
         ArrayList<Edge<String, Character>> disconnectedTree = new ArrayList<>(Arrays.asList(
@@ -193,7 +194,7 @@ public class TestProblems {
 
     public static void main(String[] args) {
 
-        // Basic checking - make sure a command is provided
+//         Basic checking - make sure a command is provided
 //        if (args.length == 0) {
 //            usage();
 //            return;
@@ -203,7 +204,8 @@ public class TestProblems {
 //        for (int i = 0; i < args.length; ++i) {
 //            dispatch(args[i]);
 //        }
-        testTunnelLighting();
+        testTopologyDetection();
+
 
         // profit??
     }

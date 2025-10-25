@@ -9,9 +9,7 @@ import uq.comp3506.a2.structures.Entry;
 import uq.comp3506.a2.structures.TopologyType;
 import uq.comp3506.a2.structures.Tunnel;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 // This is part of COMP3506 Assignment 2. Students must implement their own solutions.
 
@@ -74,6 +72,7 @@ public class Problems {
         return list;
 
     }
+
     /**
      * Compute the TopologyType of the graph as represented by the given edgeList.
      * @param edgeList The list of edges making up the graph G; each is of type
@@ -85,8 +84,73 @@ public class Problems {
      */
     public static <S, U> TopologyType topologyDetection(List<Edge<S, U>> edgeList) {
         TopologyType dummy = TopologyType.UNKNOWN;
+        enum GraphCategory{CONNECTED_TREE, CONNECTED_GRAPH, DISCONNECTED_GRAPH, FOREST,HYBRID,UNKNOWN};
+
+        List<Vertex<S>> vertices = new ArrayList<>();
+        for (Edge<S, U> edge : edgeList) {
+            if (!vertices.contains(edge.getVertex1())) vertices.add(edge.getVertex1());
+            if (!vertices.contains(edge.getVertex2())) vertices.add(edge.getVertex2());
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for (int i = 0; i < vertices.size(); i++) {
+            sb.append(vertices.get(i).getId());
+            if (i < vertices.size() - 1) sb.append(", ");
+        }
+        sb.append("]");
+        System.out.println(sb.toString());
+
+        // Step 2: Create adjacency map
+        Map<Integer, List<Integer>> adjList = new HashMap<>();
+        for (int i = 0; i < vertices.size(); i++) {
+
+            adjList.put(i, new ArrayList<>());
+        }
+
+        // Step 3: Fill adjacency map
+        for (Edge<S, U> edge : edgeList) {
+            int from = vertices.indexOf(edge.getVertex1());
+            int to = vertices.indexOf(edge.getVertex2());
+            adjList.get(from).add(to);
+            adjList.get(to).add(from); // if undirected
+        }
+
+        // Step 4: Print in the desired format
+        for (int i = 0; i < vertices.size(); i++) {
+            System.out.println(i + " " + adjList.get(i));
+        }
+
+//        GraphCategory category =computeCategory();
+//        switch (category) {
+//            case CONNECTED_TREE:
+//                return TopologyType.CONNECTED_TREE;
+//            case CONNECTED_GRAPH:
+//                return TopologyType.CONNECTED_GRAPH;
+//            case DISCONNECTED_GRAPH:
+//                return TopologyType.DISCONNECTED_GRAPH;
+//            case FOREST:
+//                return TopologyType.FOREST;
+//            case HYBRID:
+//                return TopologyType.HYBRID;
+//            case UNKNOWN:
+//                return TopologyType.UNKNOWN;
+//        }
         return dummy;
     }
+    private static String matrixToString(Integer[][] matrix) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                sb.append(matrix[i][j]).append(" ");
+            }
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
+//
+//    private static GraphCategory computeCategory() {
+//    }
+
 
     /**
      * Compute the list of reachable destinations and their minimum costs.
