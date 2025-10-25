@@ -37,18 +37,36 @@ public class Problems {
      * Note: We promise that the input List will be an ArrayList.
      */
     public static double tunnelLighting(int tunnelLength, List<Integer> lightIntervals) {
-        List<Integer> sortedList = sortedList(lightIntervals);
-        List<Integer> difference = new ArrayList<>();
+        List<Integer> sortedIntegers = sortedList(lightIntervals);
+        List<Double> sortedList = new ArrayList<>();
+        for (Integer val : sortedIntegers) {
+            sortedList.add(val.doubleValue()); // convert Integer to Double
+        }
+        Collections.sort(sortedList);
+        List<Double> difference = new ArrayList<>();
         int i=0;
         difference.add(sortedList.get(0)-0);
-//        while(i<tunnelLength){
-//
-//        }
-        System.out.println(sortedList.get(sortedList.size()-1));
+        while(i<sortedList.size()-1){
+            difference.add(sortedList.get(i+1)-sortedList.get(i));
+            i++;
+        }
         difference.add(tunnelLength-sortedList.get(sortedList.size()-1));
-
-        System.out.println(difference);
-        return -1;
+        if(Collections.max(difference)==difference.get(0)|| Collections.max(difference)==difference.get(difference.size()-1)){
+            System.out.println(Collections.max(difference));
+            return Collections.max(difference);
+        }
+        else{
+            double maxgap=Collections.max(difference)/2;
+            if(maxgap<difference.get(difference.size()-1)){
+                return difference.get(difference.size()-1);
+            }
+            else if (maxgap<difference.get(0)) {
+                return difference.get(0);
+            }
+            else{
+                return Collections.max(difference)/2 ;
+            }
+        }
     }
 
     public static List<Integer> sortedList(List<Integer> list){

@@ -28,7 +28,7 @@ public class TestProblems {
 //        assert Math.abs(Problems.tunnelLighting(12,
 //                        new ArrayList<>(Arrays.asList(4, 7, 8, 1))) - 4) <= 0.000001;
         Problems problems = new Problems();
-        problems.tunnelLighting(20, new ArrayList<>(Arrays.asList(4, 7, 8, 1)));
+        problems.tunnelLighting(16, new ArrayList<>(Arrays.asList(3, 5, 12)));
 
         // you can use this one if you prefer jUnit testing instead
         // assertEquals(4, Problems.tunnelLighting(12,
